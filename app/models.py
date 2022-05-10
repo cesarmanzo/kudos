@@ -7,6 +7,9 @@ class Organization(models.Model):
     name = models.CharField(max_length=200, blank=False, unique=True)
     logo = models.ImageField(blank=True, upload_to='logos', height_field=None, width_field=None, max_length=200)
 
+    def __str__(self):
+        return self.name
+
 
 class Kudo(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -14,8 +17,14 @@ class Kudo(models.Model):
     sent_to = models.ForeignKey(User, related_name='sent_to', on_delete=models.CASCADE)
     message = models.TextField(blank = True)
 
+    def __str__(self):
+        return self.id
+
 
 class UserData(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     kudos_available = models.IntegerField()
+
+    def __str__(self):
+        return self.user.first_name
