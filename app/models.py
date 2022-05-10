@@ -24,7 +24,7 @@ class Kudo(models.Model):
 class UserData(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
-    kudos_available = models.IntegerField()
+    kudos_available = models.PositiveSmallIntegerField()
 
     def __str__(self):
         return self.user.first_name

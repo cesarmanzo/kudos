@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
     'rest_framework',
     'app'
 ]
@@ -137,3 +138,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
 }
+
+
+CRONJOBS = [
+    # For testing purposes, the Kudos will be reset every 5 minutes.
+    # In case you want to have it each week, comment that line and uncomment the one below it.
+    # Don't forget to run python manage.py crontab add
+    ('*/5 * * * *', 'app.cron.reset_kudos')
+    # ('0 0 * * 0', 'app.cron.reset_kudos')
+]
