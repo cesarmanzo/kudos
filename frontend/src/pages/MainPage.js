@@ -127,7 +127,7 @@ function App() {
           <br/>
 
           <b>
-            You have {userData.kudos_available} kudos remaining. They expire at the end of the week!
+            You have {userData.kudos_available} kudos remaining. They expire/renew at the end of the week!
           </b>
           <br/>
         </div>
