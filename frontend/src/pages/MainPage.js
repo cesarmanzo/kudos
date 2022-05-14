@@ -26,9 +26,6 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault();
     kudosPost(formData);
-    /*setFormData({
-       reset: true
-     })*/
     Swal.fire("Kudos Sent!" ,'Keep it up!', "success").then((result) => {
       if (result.isConfirmed) {
         window.location.reload();
@@ -37,7 +34,6 @@ function App() {
   }
 
   const handleChange = event => {
-    console.log(event.target.value)
     setFormData({
       name: event.target.name,
       value: event.target.value,
@@ -154,7 +150,7 @@ function App() {
               <textarea className="form-control" id="message" name="message" rows="3" onChange={handleChange} value={formData.message || ''}/>
             </div>
             <div className="form-group text-right">
-            <button type="submit" className="btn btn-primary">Send Kudos</button>
+            <button disabled={!formData.sent_to} type="submit" className="btn btn-primary">Send Kudos</button>
             </div>
             </fieldset>
           </form>
