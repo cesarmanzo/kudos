@@ -53,15 +53,13 @@ git clone https://github.com/cesarmanzo/kudos.git
 cd kudos
 pip install -r requirements.txt
 npm install
+````
 
 To add the cron, run:
-python manage.py crontab add
+`python manage.py crontab add`
 
 Don't forget to remove after testing the project with:
-python manage.py crontab remove
-
-python manage.py runserver
-````
+`python manage.py crontab remove`
 
 ## Run the project
 After activating your virtual environment, run the migrations:
