@@ -20,7 +20,8 @@ The requirements for the project are the following:
 - Cron job to restart kudos count
 - Data ready to load and test
 - Multiple users with different organizations
-- Image in organization (not implemented in frontend)
+- Image in organization (not implemented in frontend yet)
+- Pagination of results (not implemented in frontend yet)
 - CRUD available with Django Admin
 - Clean and simple design (bootstrap + Swal alert)
 
