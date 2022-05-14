@@ -1,6 +1,7 @@
 import { useEffect, useState, useReducer } from 'react'
 import { useAuthActions, useAuthUser } from 'use-eazy-auth'
 import React from 'react';
+import Swal from 'sweetalert2'
 
 
 const formReducer = (state, event) => {
@@ -34,8 +35,16 @@ function App() {
     /*setFormData({
        reset: true
      })*/
-    alert('You have sent Kudos!')
-    window.location.reload();
+    Swal.fire("Kudos Sent!" ,'Keep it up!', "success").then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
+    })
+    
+
+
+
+
   }
 
   const handleChange = event => {
@@ -187,6 +196,10 @@ function App() {
                 <span className="mr-3"><b>Message:</b></span>
                 {art.message}
               </div>
+              <div>
+                <span className="mr-3"><b>Date:</b></span>
+                {art.created_at}
+              </div>
             </div>
           );
         })}
@@ -201,6 +214,10 @@ function App() {
               <div>
                 <span className="mr-3"><b>Message:</b></span>
                 {child.message}
+              </div>
+              <div>
+                <span className="mr-3"><b>Date:</b></span>
+                {child.created_at}
               </div>
             </div>
           );
