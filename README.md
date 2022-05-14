@@ -3,6 +3,7 @@
 Coding challenge for Trakstar. Please excuse the poor frontend code, as is my first time ever working with ReactJS (80% of my time was spent dealing with the frontend).
 
 The requirements for the project are the following:
+
 - Backend in Python3
 - Every week, each user receives three kudos to give to other users within their organization
 - Kudos do not accumulate
@@ -21,9 +22,9 @@ The requirements for the project are the following:
 - Multiple users with different organizations
 - Image in organization (not implemented in frontend)
 - CRUD available with Django Admin
-- Clean and simple design + Swal alert
+- Clean and simple design (bootstrap + Swal alert)
 
-## Requirements
+## Prerequisites
 - Python 3 (3.8.10)
 - npm 8.5.5
 - node 16.15.0
