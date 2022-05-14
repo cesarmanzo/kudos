@@ -1,6 +1,6 @@
 # Kudos app
 
-Coding challenge for Trakstar. Please excuse the poor frontend code, as is my first time ever working with ReactJS (80% of my time was spent dealing with the frontend).
+Coding challenge for Trakstar. Please excuse the poor frontend code, as this is my first time *ever* working with ReactJS (80% of my time was spent dealing with the frontend).
 
 The requirements for the project are the following:
 
@@ -82,6 +82,8 @@ To enter Django Admin, go to http://127.0.0.1:8000/admin
 Login: `admin` / `admin`
 
 ### Users to test
+
+You can login with these users and send kudos or see received/sent kudos. Just go to http://localhost:3000/ and use the data below.
 
 |     User     |  Password    |  Organization | Remaining Kudos |
 |--------------|--------------|---------------|-----------------|
