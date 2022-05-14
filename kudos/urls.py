@@ -18,7 +18,6 @@ router.register(r'users', views.UsersViewSet)
 router.register(r'users-available', views.UsersAvailableViewSet)
 router.register(r'organization', views.OrganizationViewSet)
 router.register(r'kudos-sent', views.KudoSentViewSet)
-# router.register(r'kudos-post', views.KudoPostViewSet)
 router.register(r'kudos-received', views.KudoReceivedViewSet)
 router.register(r'user-data', views.UserDataViewSet)
 

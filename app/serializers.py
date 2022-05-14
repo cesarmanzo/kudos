@@ -17,8 +17,6 @@ class OrganizationSerializer(serializers.ModelSerializer):
         fields = ['url', 'created_at', 'name', 'logo']
 
 class KudoPostSerializer(serializers.ModelSerializer):
-    # sent_by = serializers.StringRelatedField(many=False)
-    # sent_to = serializers.StringRelatedField(many=False)
     class Meta:
         model = Kudo
         fields = ['sent_by', 'sent_to', 'message']

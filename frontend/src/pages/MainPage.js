@@ -5,12 +5,6 @@ import Swal from 'sweetalert2'
 
 
 const formReducer = (state, event) => {
-/*  if(event.reset) {
-   return {
-     send_to: '',
-     message: ''
-   }
- }*/
  return {
    ...state,
    [event.name]: event.value
@@ -40,11 +34,6 @@ function App() {
         window.location.reload();
       }
     })
-    
-
-
-
-
   }
 
   const handleChange = event => {
