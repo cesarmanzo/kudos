@@ -64,13 +64,16 @@ python manage.py runserver
 ````
 
 ## Run the project
-After activating your virtual environment, load the data:
+After activating your virtual environment, run the migrations:
+`python manage.py migrate`
+
+Then, load the data:
 `python manage.py loaddata mydata.json`
 
 Then, run the project:
 `python manage.py runserver`
 
-In another terminal, to activate the frontend, run:
+In another terminal, to run the frontend:
 `npm start`
 
 ### Django Admin
