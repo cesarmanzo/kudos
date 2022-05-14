@@ -1,5 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 class Organization(models.Model):
@@ -17,7 +20,7 @@ class Kudo(models.Model):
     sent_to = models.ForeignKey(User, related_name='sent_to', on_delete=models.CASCADE)
     message = models.TextField(blank = True)
 
-    def __str__(self):
+    def __int__(self):
         return self.id
 
 
@@ -26,5 +29,8 @@ class UserData(models.Model):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     kudos_available = models.PositiveSmallIntegerField(default=3)
 
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
-        return self.user.first_name
+        return self.user.first_name + " " + self.user.last_name

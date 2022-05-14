@@ -1,24 +1,39 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from .models import Organization, Kudo, UserData
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+User = get_user_model()
+
+
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        exclude = ('password', )
 
-class OrganizationSerializer(serializers.HyperlinkedModelSerializer):
+class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
         fields = ['url', 'created_at', 'name', 'logo']
 
-class KudoSerializer(serializers.HyperlinkedModelSerializer):
+class KudoPostSerializer(serializers.ModelSerializer):
+    # sent_by = serializers.StringRelatedField(many=False)
+    # sent_to = serializers.StringRelatedField(many=False)
+    class Meta:
+        model = Kudo
+        fields = ['sent_by', 'sent_to', 'message']
+
+class KudoSerializer(serializers.ModelSerializer):
+    sent_by = UserSerializer(many=False)
+    sent_to = UserSerializer(many=False)
     class Meta:
         model = Kudo
         fields = ['url', 'created_at', 'sent_by', 'sent_to', 'message']
 
-class UserDataSerializer(serializers.HyperlinkedModelSerializer):
+class UserDataSerializer(serializers.ModelSerializer):
+    organization = serializers.StringRelatedField(many=False)
+    user = UserSerializer(many=False)
     class Meta:
         model = UserData
-        fields = ['url', 'user', 'organization', 'kudos_available']
+        ordering = ['-id']
+        fields = ['url', 'organization', 'kudos_available', 'user', 'id']
